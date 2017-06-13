@@ -50,20 +50,20 @@ echo "$sql" | mysql -uroot -p"$sqlroot"
 unset sqlroot
 unset sql
 
-#Konfiguration anpassen
-sed -e "s/testinstallation/$sqlpw/g" config.php > config.php.tmp && mv config.php.tmp config.php
+#Konfiguration anpassen und unter /etc speichern
+sed -e "s/testinstallation/$sqlpw/g" config.php.sample > /etc/adar.config
 
 read -p "Absendeadresse für E-Mails? [ADAR <adar@localhost>] " cfgtmp
 echo
 if [[ -z "${cfgtmp// }" ]] ;then
 	cfgtmp="ADAR <adar@localhost>"
 fi
-sed -e "s/ADAR <adar@localhost>/$cfgtmp/g" config.php > config.php.tmp && mv config.php.tmp config.php
+sed -e "s/ADAR <adar@localhost>/$cfgtmp/g" /etc/adar.config > config.php.tmp && mv config.php.tmp /etc/adar.config
 
 read -p "E-Mail für Benachrichtigung bei Neuanlagen? (Leer = Keine Infomail) " cfgtmp
 echo
 if [[ ! -z "${cfgtmp// }" ]] ;then
-	sed -e "s/''/'$cfgtmp'/g" config.php > config.php.tmp && mv config.php.tmp config.php
+	sed -e "s/''/'$cfgtmp'/g" /etc/adar.config > config.php.tmp && mv config.php.tmp /etc/adar.config
 fi
 
 unset cfgtmp
