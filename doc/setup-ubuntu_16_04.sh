@@ -7,7 +7,7 @@ apt-get install mariadb-server mariadb-client apache2 imagemagick tesseract-ocr 
 
 #PHP7
 sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:ondrej/php
+sudo add-apt-repository ppa:ondrej/php #Thanks to https://tecadmin.net/install-php-7-on-ubuntu/#
 apt-get update
 apt-get install php7.0 php7.0-cli php7.0-mysql php7.0-gd libapache2-mod-php7.0 php7.0-opcache php7.0-zip
 
