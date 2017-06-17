@@ -84,7 +84,7 @@ unset sqlpw
 unset cfgtmp
 
 #Cronjob einrichten
-echo '*/5 * * * * /usr/bin/php -f /var/www/html/adar/cron.php > /var/log/adar.cron.log' > /etc/cron.d/adar
+echo '*/5 * * * * root cd /var/www/html/adar/ && /usr/bin/php -f cron.php > /var/log/adar.cron.log' > /etc/cron.d/adar
 
 #Done
 popd
